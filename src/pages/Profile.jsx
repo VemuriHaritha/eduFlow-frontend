@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { fileUrl } from '../utils/fileUrl';
 import api from '../api/axios';
 import toast from 'react-hot-toast';
 
@@ -49,7 +50,7 @@ export default function Profile() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 space-y-8">
       <div className="flex items-center gap-4">
-        <img src={user.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6366f1&color=fff`} className="w-20 h-20 rounded-full object-cover" alt="" />
+        <img src={user.photo ? fileUrl(user.photo) : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6366f1&color=fff`} className="w-20 h-20 rounded-full object-cover" alt="" />
         <div>
           <h1 className="text-2xl font-bold">{user.name}</h1>
           <p className="text-gray-500 capitalize">{user.role} • {user.email}</p>
