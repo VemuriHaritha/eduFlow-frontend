@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+// If VITE_API_URL is set (e.g. your deployed Render backend), requests go
+// straight there. If it's left empty, requests fall back to the relative
+// "/api" path, which the Vite dev server proxies to localhost:5000 — so
+// local development keeps working exactly as before with no env file needed.
+const API_ORIGIN = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
 const api = axios.create({
-  baseURL: '/api'
+  baseURL: `${API_ORIGIN}/api`
 });
 
 api.interceptors.request.use((config) => {
