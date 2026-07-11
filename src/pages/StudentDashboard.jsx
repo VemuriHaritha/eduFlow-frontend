@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
+import { fileUrl } from '../utils/fileUrl';
 import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
@@ -75,7 +76,7 @@ export default function StudentDashboard() {
             {enrollments.map((e) => e.course && (
               <div key={e._id} className="card p-4 flex gap-4">
                 <div className="w-20 h-20 rounded-lg bg-gray-100 dark:bg-gray-700 shrink-0 overflow-hidden">
-                  {e.course.thumbnail && <img src={e.course.thumbnail} className="w-full h-full object-cover" alt="" />}
+                  {e.course.thumbnail && <img src={fileUrl(e.course.thumbnail)} className="w-full h-full object-cover" alt="" />}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-sm line-clamp-1">{e.course.title}</p>
