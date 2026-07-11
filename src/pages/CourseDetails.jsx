@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
+import { fileUrl } from '../utils/fileUrl';
 import Loader from '../components/Loader';
 import ProgressBar from '../components/ProgressBar';
 import toast from 'react-hot-toast';
@@ -104,7 +105,7 @@ export default function CourseDetails() {
 
           <div className="card p-6 text-gray-900 dark:text-gray-100 h-fit">
             <div className="h-40 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-              {course.thumbnail && <img src={course.thumbnail} alt="" className="w-full h-full object-cover" />}
+              {course.thumbnail && <img src={fileUrl(course.thumbnail)} alt="" className="w-full h-full object-cover" />}
             </div>
             <p className="text-3xl font-bold mb-4">{course.price > 0 ? `$${course.price}` : 'Free'}</p>
 
@@ -141,8 +142,8 @@ export default function CourseDetails() {
                   <div className="flex items-center gap-3">
                     <span className="w-8 h-8 rounded-full bg-primary-50 dark:bg-primary-900/40 text-primary-600 flex items-center justify-center text-sm font-medium">{idx + 1}</span>
                     <div>
-                      <p className="font-medium text-sm">{l.title} <span className="text-xs ml-1">{l.contentType === 'pdf' ? '📄' : '📝'}</span></p>
-                      <p className="text-xs text-gray-500">{l.duration} min read</p>
+                      <p className="font-medium text-sm">{l.title}</p>
+                      <p className="text-xs text-gray-500">{l.duration} min</p>
                     </div>
                   </div>
                   {enrollment && <span className="text-xs text-gray-400">{enrollment.completedLessons?.includes(l._id) ? '✅' : ''}</span>}
