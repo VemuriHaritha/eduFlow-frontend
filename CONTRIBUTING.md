@@ -27,4 +27,4 @@ Thanks for your interest in contributing! This document covers how to get set up
 
 ## Commit Messages
 
-Use clear, present-tense commit messages:
+Use clear, present-tense commit messages.
