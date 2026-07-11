@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { fileUrl } from '../utils/fileUrl';
 
 export default function CourseCard({ course }) {
   return (
     <Link to={`/courses/${course._id}`} className="card overflow-hidden hover:shadow-lg transition-shadow group">
       <div className="h-40 bg-gradient-to-br from-primary-500 to-primary-700 relative overflow-hidden">
         {course.thumbnail ? (
-          <img src={course.thumbnail} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <img src={fileUrl(course.thumbnail)} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-white text-4xl font-bold opacity-30">
             {course.title?.[0]}
