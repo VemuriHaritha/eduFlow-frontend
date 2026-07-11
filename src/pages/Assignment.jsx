@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { fileUrl } from '../utils/fileUrl';
 import api from '../api/axios';
 import Loader from '../components/Loader';
 import toast from 'react-hot-toast';
@@ -99,7 +100,7 @@ export default function Assignment() {
               <div key={s._id} className="border border-gray-100 dark:border-gray-700 rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
                   <p className="font-medium text-sm">{s.student?.name}</p>
-                  <a href={s.fileUrl} target="_blank" rel="noreferrer" className="text-primary-600 text-xs">Download</a>
+                  <a href={fileUrl(s.fileUrl)} target="_blank" rel="noreferrer" className="text-primary-600 text-xs">Download</a>
                 </div>
                 {s.isGraded ? (
                   <p className="text-sm text-green-600">Graded: {s.marks}/{assignment.maxMarks}</p>
