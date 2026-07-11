@@ -181,29 +181,6 @@ npm run build        # outputs static files to frontend/dist
 
 See `.env.example` in each folder for the full template.
 
-eduflow/
-├── backend/
-│   ├── config/          # DB connection
-│   ├── models/           # Mongoose schemas (User, Course, Lesson, Quiz, ...)
-│   ├── controllers/       # Business logic per module
-│   ├── routes/            # Express routers
-│   ├── middleware/        # Auth guard, role guard, file upload, error handler
-│   ├── utils/               # JWT helper, DB seed script
-│   ├── uploads/             # Uploaded files (created at runtime)
-│   ├── server.js
-│   └── package.json
-│
-└── frontend/
-├── src/
-│   ├── api/               # Configured Axios instance
-│   ├── context/            # AuthContext
-│   ├── components/          # Navbar, Footer, CourseCard, ProgressBar, etc.
-│   ├── pages/                 # Home, Login, CourseDetails, Dashboards, ...
-│   └── utils/                  # fileUrl() helper for resolving uploaded file paths
-├── index.html
-└── package.json
-
-
 ---
 
 ## 🔮 Future Improvements
@@ -219,14 +196,7 @@ eduflow/
 
 ---
 
-## 📄 License
-
-Distributed under the MIT License. See [`LICENSE`](./LICENSE) for details.
-
 ## 🤝 Contributing
 
 Contributions are welcome! See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for guidelines.
 
----
-
-## 📁 Folder Structure
