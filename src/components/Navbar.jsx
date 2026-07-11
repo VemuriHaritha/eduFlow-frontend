@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { fileUrl } from '../utils/fileUrl';
 import { useAuth } from '../context/AuthContext';
 import api from '../api/axios';
 
@@ -88,7 +89,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
               <div className="relative">
                 <button onClick={() => setMenuOpen(!menuOpen)} className="flex items-center gap-2">
-                  <img src={user.photo ? user.photo : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6366f1&color=fff`} alt={user.name} className="w-9 h-9 rounded-full object-cover" />
+                  <img src={user.photo ? fileUrl(user.photo) : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6366f1&color=fff`} alt={user.name} className="w-9 h-9 rounded-full object-cover" />
                 </button>
                 {menuOpen && (
                   <div className="absolute right-0 mt-2 w-48 card p-2" onMouseLeave={() => setMenuOpen(false)}>
