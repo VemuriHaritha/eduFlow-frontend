@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../api/axios';
 import Loader from '../components/Loader';
+import { fileUrl } from '../utils/fileUrl';
 import toast from 'react-hot-toast';
 
 export default function LessonPlayer() {
@@ -67,7 +68,7 @@ export default function LessonPlayer() {
       <div className="lg:col-span-3 space-y-6">
         <div className="aspect-video bg-black rounded-xl overflow-hidden flex items-center justify-center">
           {lesson.videoUrl ? (
-            <video src={lesson.videoUrl} controls className="w-full h-full" />
+            <video src={fileUrl(lesson.videoUrl)} controls className="w-full h-full" />
           ) : (
             <p className="text-white/50">No video uploaded for this lesson</p>
           )}
@@ -87,7 +88,7 @@ export default function LessonPlayer() {
           <p className="text-gray-600 dark:text-gray-300 mt-4">{lesson.description}</p>
 
           {lesson.pdfNotes && (
-            <a href={lesson.pdfNotes} target="_blank" rel="noreferrer" className="btn-outline mt-4 inline-flex">📄 Download Notes</a>
+            <a href={fileUrl(lesson.pdfNotes)} target="_blank" rel="noreferrer" className="btn-outline mt-4 inline-flex">📄 Download Notes</a>
           )}
         </div>
 
